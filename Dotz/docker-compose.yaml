@@ -1,0 +1,25 @@
+﻿version: '3'
+
+services:
+  api:
+    image: dotz
+    build:
+      context: .
+    ports:
+      - "5101:443"
+      - "5100:80"
+    networks:
+      - api-network
+    depends_on:
+      - "mysql"
+
+  mysql:
+    image: mysql/mysql-server:latest
+    ports:
+      - "3306:3306"
+    networks:
+      - api-network
+
+networks: 
+    api-network:
+        driver: bridge
