@@ -1,4 +1,5 @@
-﻿using Dotz.Domain.Entities;
+﻿using Dotz.Application.Requests;
+using Dotz.Domain.Entities;
 using Dotz.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -19,12 +20,20 @@ namespace Dotz.Application.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
-        public async Task<IActionResult> CreateAsync([FromBody] string email)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateUserRequest request)
         {
-            await _userService.CreateAsync(email);
+            await _userService.CreateAsync(request.Email, request.Password);
             return Ok();
+        }
+        
+        [HttpPost("login")]
+        [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            return Ok(await _userService.Login(request.Email, request.Password));
         }
 
         [HttpPost("address")]
@@ -33,6 +42,15 @@ namespace Dotz.Application.Controllers
         public async Task<IActionResult> CreateAddressAsync([FromBody] string description)
         {
             await _userService.CreateAddressAsync(description);
+            return Ok();
+        }
+
+        [HttpPost("points")]
+        [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
+        public async Task<IActionResult> GivePoints([FromBody] GivePointsRequest request)
+        {
+            await _userService.GivePoints(request.Email, request.Points);
             return Ok();
         }
 

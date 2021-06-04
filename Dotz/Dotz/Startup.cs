@@ -1,4 +1,6 @@
 using Dotz.Domain;
+using Dotz.Infrastructure;
+using Dotz.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +35,7 @@ namespace Dotz
 
             services.AddControllers();
             services.AddDomain();
+            services.AddInfrastructure(Configuration);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -81,6 +84,8 @@ namespace Dotz
             {
                 endpoints.MapControllers();
             });
+
+            app.AutomaticMigrate<DotzContext>();
         }
     }
 }

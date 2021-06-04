@@ -8,6 +8,7 @@ namespace Dotz.Domain.Entities
 {
     public class UserHistory
     {
+        public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
         public DateTime OperationDate { get; set; }
