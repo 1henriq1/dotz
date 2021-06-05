@@ -10,6 +10,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Dotz.Infrastructure
 {

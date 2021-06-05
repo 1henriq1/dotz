@@ -20,7 +20,7 @@ namespace Dotz.Domain.Entities
             Quantity = quantity;
             CategoryId = categoryId;
         }
-        public Guid Id { get; set; }
+        public Guid Id { get; }
         public string Name { get; set; }
         public int Value { get; set; }
         public int Quantity { get; set; }

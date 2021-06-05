@@ -25,8 +25,16 @@ namespace Dotz.Application.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
         public async Task<IActionResult> CreateAsync([FromBody] CreateUserRequest request)
         {
-            await _userService.CreateAsync(request.Email, request.Password);
-            return Ok();
+            try
+            {
+                await _userService.CreateAsync(request.Email, request.Password);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
         
         [HttpPost("login")]
@@ -34,7 +42,15 @@ namespace Dotz.Application.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            return Ok(await _userService.Login(request.Email, request.Password));
+            try
+            {
+                return Ok(await _userService.Login(request.Email, request.Password));
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("address")]

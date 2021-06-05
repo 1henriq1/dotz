@@ -23,8 +23,14 @@ namespace Dotz.Application.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
         public async Task<IActionResult> CreateAsync([FromBody] CreateProductRequest request)
         {
-            await _productService.CreateAsync(request.Name, request.Value, request.Quantity, request.CategoryId);
-            return Ok();
+            try { 
+                await _productService.CreateAsync(request.Name, request.Value, request.Quantity, request.CategoryId);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("trade")]
