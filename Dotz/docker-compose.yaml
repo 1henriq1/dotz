@@ -10,10 +10,13 @@ services:
     networks:
       - api-network
     depends_on:
-      - "mysql"
-
+      - mysql
+    links:
+      - mysql
   mysql:
     image: mysql/mysql-server:latest
+    container_name: mysql
+    hostname: mysql
     environment:
         - "MYSQL_DATABASE=mydb"
         - "MYSQL_USER=api-user"
@@ -23,7 +26,7 @@ services:
       - "33060:3306"
     networks:
       - api-network
-
+    
 networks: 
     api-network:
         driver: bridge
