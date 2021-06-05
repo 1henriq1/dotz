@@ -1,0 +1,785 @@
+{
+	"info": {
+		"_postman_id": "f8733b64-6b82-4fa1-9f3d-3bb7afe647f3",
+		"name": "Dotz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJlODI4ZTM3Mi1hNmI4LTQwZjgtYjIyNS1kOGMzNGE3NDQxYjYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODUxMDgyLCJleHAiOjE2MjI4NTgyODIsImlhdCI6MTYyMjg1MTA4Mn0.s1KRm8eHsr-PpiuXOfKeSpuMnbWpRu1C3Dr8oo25zvE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"abcstreet123\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5100/api/user/address",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user",
+								"address"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Address",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"abcstreet123\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:5100/api/user/address",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user",
+										"address"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 04 Jun 2021 23:58:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI4MzJmYzgxNS04M2UzLTRhYzctYjdkMC01NTcwOGM0NjM5ZDEiLCJ1bmlxdWVfbmFtZSI6IjEyMyIsIm5iZiI6MTYyMjc4NDg0NiwiZXhwIjoxNjIyNzkyMDQ2LCJpYXQiOjE2MjI3ODQ4NDZ9.uT6kZqf8wT0Peg8rAIquubsD9A1DWuZ-2QhObA68F1I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"password\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"password\": \"abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5100/api/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:30:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIwZTc0ZjM2My0xNWE0LTQzNjItOTJjMC1hOWIzNWE2ZGY3OWYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODc0NjI5LCJleHAiOjE2MjI4ODE4MjksImlhdCI6MTYyMjg3NDYyOX0.nNyUG61El_v26VHaClBEa_52z_F--1397P9rQqaBRlQ"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"password\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"password\": \"abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5100/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:30:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Give Points",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"points\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/user/points",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user",
+								"points"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Give Points",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user1@gmail\",\r\n    \"points\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5100/api/user/points",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user",
+										"points"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 00:20:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI3MmQzMTkyNC1hODhmLTRmODUtODFhNy1iYTU2M2Q4YWQ5NzIiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODYwNTkzLCJleHAiOjE2MjI4Njc3OTMsImlhdCI6MTYyMjg2MDU5M30.zxHpBp8VjJm2N7OFWga-GQ9ezNSgL5ONW2fjG6_cpUY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5100/api/user/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user",
+								"balance"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Balance",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5100/api/user/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user",
+										"balance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 02:45:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"balance\": 1000,\n    \"statements\": [\n        {\n            \"id\": \"a915c23a-cfdc-40e5-a00a-56b16bc9742d\",\n            \"operationDate\": \"2021-06-04T23:36:44\",\n            \"operation\": \"Pontos adicionados\",\n            \"value\": 1000,\n            \"balance\": 1000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIwZTc0ZjM2My0xNWE0LTQzNjItOTJjMC1hOWIzNWE2ZGY3OWYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODc0NjI5LCJleHAiOjE2MjI4ODE4MjksImlhdCI6MTYyMjg3NDYyOX0.nNyUG61El_v26VHaClBEa_52z_F--1397P9rQqaBRlQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5100/api/user/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"user",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Order",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5100/api/user/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"user",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:34:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"08d927eb-df8b-4a05-8187-3e36af0a223a\",\n        \"userId\": \"0e74f363-15a4-4362-92c0-a9b35a6df79f\",\n        \"productId\": \"fda76374-1e84-46fe-9060-9138632f4d0a\",\n        \"product\": {\n            \"id\": \"fda76374-1e84-46fe-9060-9138632f4d0a\",\n            \"name\": \"CD do xitao\",\n            \"value\": 10,\n            \"quantity\": 1499,\n            \"categoryId\": \"30862e83-8733-49fd-b2fc-bb13feb0cee1\",\n            \"category\": null\n        },\n        \"status\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "List products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIwZTc0ZjM2My0xNWE0LTQzNjItOTJjMC1hOWIzNWE2ZGY3OWYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODc0NjI5LCJleHAiOjE2MjI4ODE4MjksImlhdCI6MTYyMjg3NDYyOX0.nNyUG61El_v26VHaClBEa_52z_F--1397P9rQqaBRlQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5100/api/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5100/api/product/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:33:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"fda76374-1e84-46fe-9060-9138632f4d0a\",\n        \"name\": \"CD do xitao\",\n        \"value\": 10,\n        \"quantity\": 1500,\n        \"categoryId\": \"30862e83-8733-49fd-b2fc-bb13feb0cee1\",\n        \"category\": {\n            \"id\": \"30862e83-8733-49fd-b2fc-bb13feb0cee1\",\n            \"parentId\": null,\n            \"parentCategory\": null,\n            \"subCategories\": null,\n            \"name\": \"CDS\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"CD do xitao\",\r\n    \"value\": 10,\r\n    \"quantity\": 1500,\r\n    \"categoryId\": \"30862e83-8733-49fd-b2fc-bb13feb0cee1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"CD do xitao\",\r\n    \"value\": 10,\r\n    \"quantity\": 1500,\r\n    \"categoryId\": \"30862e83-8733-49fd-b2fc-bb13feb0cee1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5100/api/product/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:32:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Trade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIwZTc0ZjM2My0xNWE0LTQzNjItOTJjMC1hOWIzNWE2ZGY3OWYiLCJ1bmlxdWVfbmFtZSI6InVzZXIxQGdtYWlsIiwibmJmIjoxNjIyODc0NjI5LCJleHAiOjE2MjI4ODE4MjksImlhdCI6MTYyMjg3NDYyOX0.nNyUG61El_v26VHaClBEa_52z_F--1397P9rQqaBRlQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"fda76374-1e84-46fe-9060-9138632f4d0a\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/product/trade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"product",
+								"trade"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Trade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"fda76374-1e84-46fe-9060-9138632f4d0a\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5100/api/product/trade",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5100",
+									"path": [
+										"api",
+										"product",
+										"trade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jun 2021 06:33:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"CDS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5100/api/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5100",
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
