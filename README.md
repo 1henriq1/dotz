@@ -1,8 +1,7 @@
 # dotz
 
-Requisitos básicos:
+Requisitos:
 - Docker (https://docs.docker.com/desktop/)
-- .NET 5 (https://dotnet.microsoft.com/download/dotnet/5.0)
 
 Como executar a aplicação:
 Acessar a pasta Dotz
