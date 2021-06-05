@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Dotz.Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
-        Task AddAsync(User user);
         Task<User> Find(string email);
         Task<User> Find(string email, string passwordHash);
-        Task Update(User user);
+        Task Update(User user, UserHistory userHistory);
+        Task CreateUserAddress(string description);
+        Task<IEnumerable<UserHistory>> GetUserHistories();
+        Task<IEnumerable<Order>> GetOrders();
     }
 }

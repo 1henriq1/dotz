@@ -14,6 +14,15 @@ namespace Dotz.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<UserHistory> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.OperationDate).IsRequired();
+            builder.Property(x => x.Operation).IsRequired();
+            builder.Property(x => x.Value).IsRequired();
+            builder.Property(x => x.Balance).IsRequired();
+            builder.HasOne(x => x.User)
+                .WithMany(x => x.UserHistories)
+                .HasForeignKey(x => x.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

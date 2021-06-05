@@ -24,6 +24,7 @@ namespace Dotz.Infrastructure.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<Guid>("UserId")
@@ -42,9 +43,6 @@ namespace Dotz.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("char(36)");
-
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
@@ -53,7 +51,7 @@ namespace Dotz.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
                 });
@@ -117,9 +115,11 @@ namespace Dotz.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -137,6 +137,7 @@ namespace Dotz.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Operation")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("OperationDate")
@@ -157,18 +158,22 @@ namespace Dotz.Infrastructure.Migrations
 
             modelBuilder.Entity("Dotz.Domain.Entities.Address", b =>
                 {
-                    b.HasOne("Dotz.Domain.Entities.User", null)
+                    b.HasOne("Dotz.Domain.Entities.User", "User")
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Dotz.Domain.Entities.Category", b =>
                 {
-                    b.HasOne("Dotz.Domain.Entities.Category", null)
+                    b.HasOne("Dotz.Domain.Entities.Category", "ParentCategory")
                         .WithMany("SubCategories")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("ParentCategory");
                 });
 
             modelBuilder.Entity("Dotz.Domain.Entities.Order", b =>
@@ -204,9 +209,9 @@ namespace Dotz.Infrastructure.Migrations
             modelBuilder.Entity("Dotz.Domain.Entities.UserHistory", b =>
                 {
                     b.HasOne("Dotz.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserHistories")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -220,6 +225,8 @@ namespace Dotz.Infrastructure.Migrations
             modelBuilder.Entity("Dotz.Domain.Entities.User", b =>
                 {
                     b.Navigation("Addresses");
+
+                    b.Navigation("UserHistories");
                 });
 #pragma warning restore 612, 618
         }

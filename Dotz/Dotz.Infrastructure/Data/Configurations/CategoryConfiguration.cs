@@ -14,6 +14,8 @@ namespace Dotz.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Name);
+            builder.HasMany(x => x.SubCategories).WithOne(w => w.ParentCategory).HasForeignKey(x => x.ParentId);
         }
     }
 }

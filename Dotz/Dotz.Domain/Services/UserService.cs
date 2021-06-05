@@ -1,8 +1,10 @@
 ﻿using Dotz.Domain.Entities;
 using Dotz.Domain.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,14 +14,15 @@ namespace Dotz.Domain.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
+
         public UserService(IUserRepository userRepository, ITokenService tokenService)
         {
             _userRepository = userRepository;
             _tokenService = tokenService;
         }
-        public Task CreateAddressAsync(string description)
+        public async Task CreateAddressAsync(string description)
         {
-            throw new NotImplementedException();
+            await _userRepository.CreateUserAddress(description);
         }
 
         public async Task CreateAsync(string email, string password)
@@ -53,21 +56,22 @@ namespace Dotz.Domain.Services
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
             return Encoding.ASCII.GetString(data);
         }
-        public Task<IEnumerable<Order>> GetOrdersAsync()
+        public async Task<IEnumerable<Order>> GetOrdersAsync()
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetOrders();
         }
 
-        public Task<IEnumerable<UserHistory>> GetUserHistoryAsync()
+        public async Task<IEnumerable<UserHistory>> GetUserHistoryAsync()
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetUserHistories();
         }
 
         public async Task GivePoints(string email, int points)
         {
             var user = await _userRepository.Find(email);
-            user.AddPoints(points);
-            await _userRepository.Update(user);
+            user.ChangeBalance(user.Balance + points);
+            var history = new UserHistory(user.Id, "Pontos adicionados", points, user.Balance);
+            await _userRepository.Update(user, history);
         }
     }
 }

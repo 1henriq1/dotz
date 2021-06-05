@@ -1,6 +1,7 @@
 ﻿using Dotz.Application.Requests;
 using Dotz.Domain.Entities;
 using Dotz.Domain.Interfaces;
+using Dotz.Domain.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +38,7 @@ namespace Dotz.Application.Controllers
         }
 
         [HttpPost("address")]
-        [AllowAnonymous]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
         public async Task<IActionResult> CreateAddressAsync([FromBody] string description)
         {
@@ -45,7 +46,7 @@ namespace Dotz.Application.Controllers
             return Ok();
         }
 
-        [HttpPost("points")]
+        [HttpPut("points")]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
         public async Task<IActionResult> GivePoints([FromBody] GivePointsRequest request)
@@ -55,14 +56,17 @@ namespace Dotz.Application.Controllers
         }
 
         [HttpGet("balance")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<UserHistory>))]
         public async Task<IActionResult> GetBalanceAsync()
         {
-            return Result(await _userService.GetUserHistoryAsync());
+            var userHistories = await _userService.GetUserHistoryAsync();
+            return Result(new BalanceResponse(userHistories.Max(m => m.Balance), userHistories));
         }
 
 
         [HttpGet("orders")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Order>))]
         public async Task<IActionResult> GetOrdersAsync()
         {

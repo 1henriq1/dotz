@@ -14,9 +14,11 @@ namespace Dotz.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Email);
-            builder.Property(x => x.PasswordHash);
-            builder.Property(x => x.Balance);
+            builder.Property(x => x.Email).IsRequired();
+            builder.Property(x => x.PasswordHash).IsRequired();
+            builder.Property(x => x.Balance).IsRequired();
+            builder.HasMany(x => x.Addresses);
+            builder.HasMany(x => x.UserHistories);
         }
     }
 }

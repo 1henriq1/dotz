@@ -14,6 +14,9 @@ namespace Dotz.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Status);
+            builder.HasOne(x => x.User);
+            builder.HasOne(x => x.Product);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Dotz.Domain.Interfaces
 {
     public interface IProductService
     {
+        Task CreateAsync(string name, int value, int quantity, Guid categoryId);
         Task TradeAsync(Guid productId);
         Task<IEnumerable<Product>> GetAsync();
     }

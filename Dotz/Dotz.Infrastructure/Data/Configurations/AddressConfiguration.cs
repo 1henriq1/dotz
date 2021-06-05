@@ -14,6 +14,12 @@ namespace Dotz.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.HasOne(x => x.User)
+                .WithMany(x => x.Addresses)
+                .HasForeignKey(x => x.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Property(x => x.Description).IsRequired();
         }
     }
 }

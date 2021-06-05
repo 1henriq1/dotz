@@ -25,7 +25,8 @@ namespace Dotz.Domain.Entities
         public string Email { get; }
         public string PasswordHash { get; set; }
         public int Balance { get; private set; }
-        public void AddPoints(int points) => Balance += points;
+        public void ChangeBalance(int balance) => Balance = balance;
         public List<Address> Addresses { get; }
+        public List<UserHistory> UserHistories { get; set; }
     }
 }

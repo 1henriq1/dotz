@@ -18,6 +18,8 @@ namespace Dotz.Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
             var serverVersion = new MySqlServerVersion(new Version(1, 0, 0));
             services.AddDbContext<DotzContext>(options => options.UseMySql(configuration.GetConnectionString("DefaultConnection"), serverVersion));
         }

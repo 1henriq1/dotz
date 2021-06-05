@@ -1,5 +1,7 @@
-﻿using Dotz.Domain.Entities;
+﻿using Dotz.Application.Requests;
+using Dotz.Domain.Entities;
 using Dotz.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,7 +18,17 @@ namespace Dotz.Application.Controllers
         {
             _productService = productService;
         }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
+        public async Task<IActionResult> CreateAsync([FromBody] CreateProductRequest request)
+        {
+            await _productService.CreateAsync(request.Name, request.Value, request.Quantity, request.CategoryId);
+            return Ok();
+        }
+
         [HttpPost("trade")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
         public async Task<IActionResult> TradeAsync([FromBody] string productId)
         {
@@ -25,6 +37,7 @@ namespace Dotz.Application.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Product>))]
         public async Task<IActionResult> GetAsync()
         {

@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dotz.Domain.Interfaces
 {
-    public interface IProductRepository : IRepository<Product>
+    public interface ICategoryRepository : IRepository<Category>
     {
-        Task<IEnumerable<Product>> GetAsync();
-        Task TradeAsync(Guid productId);
     }
 }

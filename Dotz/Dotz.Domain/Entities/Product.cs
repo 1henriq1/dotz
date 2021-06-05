@@ -8,6 +8,18 @@ namespace Dotz.Domain.Entities
 {
     public class Product
     {
+        public Product()
+        {
+
+        }
+        public Product(string name, int value, int quantity, Guid categoryId)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Value = value;
+            Quantity = quantity;
+            CategoryId = categoryId;
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
